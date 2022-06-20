@@ -313,8 +313,28 @@ class Rrt:
         delta = self.utils.delta
 
         if np.random.random() > goal_sample_rate:
-            return Node((np.random.normal((self.x_range[0] + self.x_range[1])/2, 2*delta),
-                         np.random.normal((self.y_range[0] + self.y_range[1])/2, 2*delta)))
+            start_x = self.x_range[0] + delta
+            end_x = self.x_range[1] - delta
+            
+            start_y = self.y_range[0] + delta
+            end_y = self.y_range[1] - delta
+
+            length_x = end_x - start_x
+            length_y = end_y - start_y
+
+            u_x = np.random.uniform(0,length_x)
+            u_y = np.random.uniform(0,length_y)
+
+            x_rand = math.pow(u_x,1/3)
+            gain_x = length_x/math.pow(length_x,1/3)
+            x_rand = x_rand * gain_x
+            x_rand = x_rand + start_x
+
+            y_rand = math.pow(u_y,1/3)
+            gain_y = length_y/math.pow(length_y,1/3)
+            y_rand = y_rand * gain_y
+            y_rand = y_rand + start_y
+            return Node((x_rand, y_rand))
 
         return self.s_goal
 
@@ -352,7 +372,7 @@ class Rrt:
 
 def main():
     x_start = (3, 3)  # Starting node
-    x_goal = (48, 30)  # Goal node
+    x_goal = (48, 26)  # Goal node
 
     rrt = Rrt(x_start, x_goal, 0.5, 0.05, 10000)
     path = rrt.planning()
