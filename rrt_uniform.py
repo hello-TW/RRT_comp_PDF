@@ -311,11 +311,9 @@ class Rrt:
 
     def generate_random_node(self, goal_sample_rate):
         delta = self.utils.delta
-        
-        #generate uniform random distribution
-        
+
         if np.random.random() > goal_sample_rate:
-            return Node((np.random.uniform(self.x_range[0] + delta, self.x_range[1] - delta), 
+            return Node((np.random.uniform(self.x_range[0] + delta, self.x_range[1] - delta),
                          np.random.uniform(self.y_range[0] + delta, self.y_range[1] - delta)))
 
         return self.s_goal
@@ -353,8 +351,8 @@ class Rrt:
 
 
 def main():
-    x_start = (2, 2)  # Starting node
-    x_goal = (49, 24)  # Goal node
+    x_start = (3, 3)  # Starting node
+    x_goal = (48, 26)  # Goal node
 
     rrt = Rrt(x_start, x_goal, 0.5, 0.05, 10000)
     path = rrt.planning()
