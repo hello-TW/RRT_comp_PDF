@@ -18,3 +18,7 @@ Probability Distribution에 따른 RRT 성능비교를 위한 python 코드
   One_Progress : RRT를 1회진행후 Animation 실행
   
   Average_iteration : RRT를 100회 진행하고 iteration의 편균을 출력
+
+### exel
+
+RRT iteration.xlsx : func1, func2, uniform 의 average_iteration을 정
