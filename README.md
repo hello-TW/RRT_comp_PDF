@@ -1,5 +1,4 @@
 # RRT_comp_PDF
-RRT Performance Comparison based on Probability Distribution
 
 
 Probability Distribution에 따른 RRT 성능비교를 위한 python 코드
