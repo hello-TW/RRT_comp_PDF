@@ -305,10 +305,8 @@ class Rrt:
 
                 if dist <= self.step_len and not self.utils.is_collision(node_new, self.s_goal):
                     self.new_state(node_new, self.s_goal)
-                    print(i)
-                    return self.extract_path(node_new)
-        print(i)
-        return None
+                    return self.extract_path(node_new),i
+        return None,i
 
     def generate_random_node(self, goal_sample_rate):
         delta = self.utils.delta
@@ -374,14 +372,20 @@ class Rrt:
 def main():
     x_start = (3, 3)  # Starting node
     x_goal = (48, 26)  # Goal node
-
-    rrt = Rrt(x_start, x_goal, 0.5, 0.05, 10000)
-    path = rrt.planning()
-
+    sum = 0
+    for n in range(1,101):
+        rrt = Rrt(x_start, x_goal, 0.5, 0.05, 10000)
+        path, i = rrt.planning()
+        print(i)
+        sum = sum + i
+    avg = sum/100
+    print("avg : ", avg)
+    '''
     if path:
-        rrt.plotting.animation(rrt.vertex, path, "RRT", True)
+        rrt.plotting.animation(rrt.vertex, path, "Uniform", True)
     else:
         print("No Path Found!")
+    '''
 
 
 if __name__ == '__main__':

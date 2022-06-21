@@ -326,13 +326,13 @@ class Rrt:
             u_x = np.random.uniform(0,length_x)
             u_y = np.random.uniform(0,length_y)
 
-            x_rand = math.pow(u_x,1/3)
-            gain_x = length_x/math.pow(length_x,1/3)
+            x_rand = math.pow(u_x,1/2)
+            gain_x = length_x/math.pow(length_x,1/2)
             x_rand = x_rand * gain_x
             x_rand = x_rand + start_x
 
-            y_rand = math.pow(u_y,1/3)
-            gain_y = length_y/math.pow(length_y,1/3)
+            y_rand = math.pow(u_y,1/2)
+            gain_y = length_y/math.pow(length_y,1/2)
             y_rand = y_rand * gain_y
             y_rand = y_rand + start_y
             return Node((x_rand, y_rand))
@@ -379,7 +379,7 @@ def main():
     path = rrt.planning()
 
     if path:
-        rrt.plotting.animation(rrt.vertex, path, "RRT", True)
+        rrt.plotting.animation(rrt.vertex, path, "func1", True)
     else:
         print("No Path Found!")
 
