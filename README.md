@@ -3,7 +3,7 @@
 
 Probability Distribution에 따른 RRT 성능비교를 위한 python 코드
 
-## 코드
+### 코드
 
   rrt_uniform.py : uniform distribution을 이용한 RRT
   
@@ -13,7 +13,7 @@ Probability Distribution에 따른 RRT 성능비교를 위한 python 코드
   
   rrt_gaussian.py , rrt_poisson.py : 가우스 또는 포아송 을 이용한 RRT 
   
-## 폴더
+### 폴더
 
   One_Progress : RRT를 1회진행후 Animation 실행
   
