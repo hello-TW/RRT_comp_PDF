@@ -305,6 +305,7 @@ class Rrt:
 
                 if dist <= self.step_len and not self.utils.is_collision(node_new, self.s_goal):
                     self.new_state(node_new, self.s_goal)
+                    print(i)
                     return self.extract_path(node_new)
         print(i)
         return None
